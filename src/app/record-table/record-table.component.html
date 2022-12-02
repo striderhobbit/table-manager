@@ -1,12 +1,12 @@
 <table>
     <thead>
         <tr>
-            <th *ngFor="let key of keys">{{key.value}}</th>
+            <th *ngFor="let key of keys | filter: 'visible': true">{{key.value}}</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let record of records">
-            <td *ngFor="let key of keys">{{record[key.value]}}</td>
+            <td *ngFor="let key of keys | filter: 'visible': true">{{record[key.value]}}</td>
         </tr>
     </tbody>
 </table>
