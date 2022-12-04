@@ -10,5 +10,4 @@ export class RecordTableService {
 
     recordTable = new RecordTable<typeof records[number]>(records);
 
-    constructor() { }
 };
