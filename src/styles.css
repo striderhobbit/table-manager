@@ -16,3 +16,7 @@ body {
 body {
     font-family: Montserrat, Helvetica, Arial, Lucida, sans-serif;
 }
+
+label[for] {
+    user-select: none;
+}

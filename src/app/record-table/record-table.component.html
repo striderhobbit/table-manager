@@ -1,12 +1,12 @@
 <table>
-    <thead>
-        <tr>
-            <th *ngFor="let key of keys | filter: 'visible': true">{{key.value}}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let record of records">
-            <td *ngFor="let key of keys | filter: 'visible': true">{{record[key.value]}}</td>
-        </tr>
-    </tbody>
+    <tr>
+        <th *ngFor="let column of recordTableService.recordTable.columns({ visible: true })">
+            <label [for]="column.toggleId">{{column.key}}</label>
+        </th>
+    </tr>
+    <tr *ngFor="let record of recordTableService.recordTable.records">
+        <td *ngFor="let column of recordTableService.recordTable.columns({ visible: true })">
+            {{record[column.key]}}
+        </td>
+    </tr>
 </table>
