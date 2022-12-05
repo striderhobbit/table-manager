@@ -1,7 +1,7 @@
 import { union } from "lodash";
 import { Record } from "./record";
 
-interface Column<Line extends object> {
+interface Column<Line> {
     key: keyof Line,
     visible: boolean,
 };
@@ -27,8 +27,12 @@ export class Table<Line extends object> {
         return this.#lines.slice();
     }
 
-    newColumnRange() {
+    newColumnRecord(): Record<Column<Line>> {
         return new Record<Column<Line>>(this.#columns);
+    }
+
+    newLineRecord(): Record<Line> {
+        return new Record<Line>(this.#lines);
     }
 
     toggleColumn(column: Column<Line>): void {

@@ -1,6 +1,6 @@
 import { filter, ListIterateeCustom } from "lodash";
 
-export class Record<Line extends object> {
+export class Record<Line> {
 
     #lines: Line[];
 
@@ -10,7 +10,7 @@ export class Record<Line extends object> {
         this.#lines = lines;
     }
 
-    set(predicate: ListIterateeCustom<Line, boolean>): Record<Line> {
+    setRange(predicate: ListIterateeCustom<Line, boolean>): Record<Line> {
         this.#predicate = predicate;
 
         return this;

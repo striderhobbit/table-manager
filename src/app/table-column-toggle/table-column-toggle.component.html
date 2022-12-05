@@ -1,5 +1,5 @@
-<ul *ngIf="columnRange.size">
-    <li *ngFor="let column of columnRange.get()" (click)="table.toggleColumn(column)">
+<ul *ngIf="columnRecord.size">
+    <li *ngFor="let column of columnRecord.get()" (click)="table.toggleColumn(column)">
         {{column.key}}
     </li>
 </ul>

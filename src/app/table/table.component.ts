@@ -12,7 +12,7 @@ export class TableComponent {
 
     table = this.tableService.table;
 
-    columnRange = this.table.newColumnRange()
-        .set({ visible: true });
+    columnRecord = this.table.newColumnRecord()
+        .setRange({ visible: true });
 
 };

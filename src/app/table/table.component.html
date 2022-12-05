@@ -1,14 +1,14 @@
 <table>
     <thead>
         <tr>
-            <th *ngFor="let column of columnRange.get()" (click)="table.toggleColumn(column)">
+            <th *ngFor="let column of columnRecord.get()" (click)="table.toggleColumn(column)">
                 {{column.key}}
             </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let line of table.lines">
-            <td *ngFor="let column of columnRange.get()">
+            <td *ngFor="let column of columnRecord.get()">
                 {{line[column.key]}}
             </td>
         </tr>

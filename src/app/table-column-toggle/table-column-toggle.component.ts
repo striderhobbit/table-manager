@@ -12,7 +12,7 @@ export class TableColumnToggleComponent {
 
     table = this.tableService.table;
 
-    columnRange = this.table.newColumnRange()
-        .set({ visible: false });
+    columnRecord = this.table.newColumnRecord()
+        .setRange({ visible: false });
 
 };
