@@ -6,7 +6,7 @@ import { TableService } from "../table.service";
     templateUrl: './table-column-toggle.component.html',
     styleUrls: ['./table-column-toggle.component.css']
 })
-export class TableColumnToggleComponent {
+export class TableColumnToggleComponent {   // TODO make this into a more general toggle-component
 
     constructor(public tableService: TableService) { }
 

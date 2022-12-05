@@ -1,3 +1,7 @@
+:root {
+    --box-shadow-0: 0 0 0 .1vmin rgb(0 0 0 / 20%) inset;
+}
+
 *,
 ::before,
 ::after {
