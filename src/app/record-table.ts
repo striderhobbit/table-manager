@@ -1,8 +1,8 @@
-import { filter, ListIterateeCustom, union } from "lodash";
+import { union } from "lodash";
+import { Range } from "./range";
 
 interface Column<Record extends object> {
     key: keyof Record,
-    toggleId: string,
     visible: boolean,
 };
 
@@ -16,9 +16,8 @@ export class RecordTable<Record extends object> {
 
         this.#records = records.slice();
 
-        this.#columns = union(...this.#records.map(record => Object.keys(record) as (keyof Record)[])).map((key, i) => ({
+        this.#columns = union(...this.#records.map(record => Object.keys(record) as (keyof Record)[])).map(key => ({
             key,
-            toggleId: `column-toggle-${i}`,
             visible: true,
         }));
 
@@ -28,8 +27,12 @@ export class RecordTable<Record extends object> {
         return this.#records.slice();
     }
 
-    columns(predicate?: ListIterateeCustom<Column<Record>, boolean>): Column<Record>[] {
-        return filter<Column<Record>>(this.#columns, predicate);
+    newColumnRange() {
+        return new Range<Column<Record>>(this.#columns);
+    }
+
+    toggleColumn(column: Column<Record>): void {
+        column.visible = !column.visible;
     }
 
 };

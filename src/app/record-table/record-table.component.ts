@@ -10,4 +10,9 @@ export class RecordTableComponent {
 
     constructor(public recordTableService: RecordTableService) { }
 
+    recordTable = this.recordTableService.recordTable;
+
+    columnRange = this.recordTable.newColumnRange()
+        .set({ visible: true });
+
 };

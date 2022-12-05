@@ -1,12 +1,16 @@
 <table>
-    <tr>
-        <th *ngFor="let column of recordTableService.recordTable.columns({ visible: true })">
-            <label [for]="column.toggleId">{{column.key}}</label>
-        </th>
-    </tr>
-    <tr *ngFor="let record of recordTableService.recordTable.records">
-        <td *ngFor="let column of recordTableService.recordTable.columns({ visible: true })">
-            {{record[column.key]}}
-        </td>
-    </tr>
+    <thead>
+        <tr>
+            <th *ngFor="let column of columnRange.get()" (click)="recordTable.toggleColumn(column)">
+                {{column.key}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let record of recordTable.records">
+            <td *ngFor="let column of columnRange.get()">
+                {{record[column.key]}}
+            </td>
+        </tr>
+    </tbody>
 </table>

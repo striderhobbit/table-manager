@@ -1,16 +1,18 @@
-.column-toggles {
+ul {
     background-color: white;
     bottom          : 0;
     box-shadow      : 0 0 .2em .2em rgb(0 0 0 / 10%);
-    margin          : .5em;
+    margin          : .4em;
     position        : fixed;
     right           : 0;
 }
 
-.column-toggle {
+ul,
+li {
     padding: .4em;
 }
 
-.column-toggle>input[type=checkbox]+label {
-    margin-left: .2em;
+li {
+    list-style : none;
+    user-select: none;
 }
