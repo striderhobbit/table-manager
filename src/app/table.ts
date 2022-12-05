@@ -16,7 +16,11 @@ export class Table<Line> {
 
         this.#lines = lines.slice();
 
-        this.#columns = union(...this.#lines.map(line => Object.keys(line as object) as (keyof Line)[])).map(key => ({
+        const keys = this.#lines.map(line =>
+            Object.keys(line as object) as (keyof Line)[]
+        );
+
+        this.#columns = union(...keys).map(key => ({
             key,
             visible: true,
         }));
