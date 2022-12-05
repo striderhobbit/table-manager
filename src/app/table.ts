@@ -6,7 +6,7 @@ interface Column<Line> {
     visible: boolean,
 };
 
-export class Table<Line extends object> {
+export class Table<Line> {
 
     #lines: Line[];
 
@@ -16,7 +16,7 @@ export class Table<Line extends object> {
 
         this.#lines = lines.slice();
 
-        this.#columns = union(...this.#lines.map(line => Object.keys(line) as (keyof Line)[])).map(key => ({
+        this.#columns = union(...this.#lines.map(line => Object.keys(line as object) as (keyof Line)[])).map(key => ({
             key,
             visible: true,
         }));
