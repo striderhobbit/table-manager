@@ -1,5 +1,5 @@
 import { union } from "lodash";
-import { Range } from "./range";
+import { Record } from "./record";
 
 interface Column<Line extends object> {
     key: keyof Line,
@@ -28,7 +28,7 @@ export class Table<Line extends object> {
     }
 
     newColumnRange() {
-        return new Range<Column<Line>>(this.#columns);
+        return new Record<Column<Line>>(this.#columns);
     }
 
     toggleColumn(column: Column<Line>): void {
