@@ -1,14 +1,18 @@
 import { union } from "lodash";
 import { Record } from "./record";
 
-interface Column<Line> {
+export interface Column<Line> {     // TODO "extends object" strangely breaks @ runtime
+    index: number,
     key: keyof Line,
+    toggle: () => void,
     visible: boolean,
 };
 
-export class Table<Line> {
+export class Table<Line extends object> {
 
     #lines: Line[];
+
+    #keys: (keyof Line)[];
 
     #columns: Column<Line>[];
 
@@ -16,15 +20,20 @@ export class Table<Line> {
 
         this.#lines = lines.slice();
 
-        const keys = this.#lines.map(line =>
-            Object.keys(line as object) as (keyof Line)[]
-        );
+        this.#keys = union(...this.#lines.map(line =>
+            Object.keys(line) as (keyof Line)[]
+        ));
 
-        this.#columns = union(...keys).map(key => ({
-            key,
-            visible: true,
-        }));
-
+        this.#columns = this.#keys.map((key, _, keys) => new class {
+            get index(): number {
+                return keys.indexOf(key);
+            }
+            key = key;
+            toggle() {
+                this.visible = !this.visible;
+            }
+            visible = true;
+        });
     }
 
     get lines(): Line[] {
@@ -39,8 +48,14 @@ export class Table<Line> {
         return new Record<Line>(this.#lines);
     }
 
-    toggleColumn(column: Column<Line>): void {
-        column.visible = !column.visible;
+    moveColumn(sourceKey: keyof Line, targetKey: keyof Line): void {
+        if (sourceKey !== targetKey) {
+            const sourceIndex: number = this.#keys.indexOf(sourceKey);
+            const targetIndex: number = this.#keys.indexOf(targetKey);
+
+            this.#keys.splice(sourceIndex, 1)
+            this.#keys.splice(targetIndex, 0, sourceKey);
+        }
     }
 
 };

@@ -1,11 +1,5 @@
 <table>
-    <thead>
-        <tr>
-            <th *ngFor="let column of columnRecord.get()" (click)="table.toggleColumn(column)">
-                {{column.key}}
-            </th>
-        </tr>
-    </thead>
+    <app-table-header [table]="table" [columns]="columnRecord.get()"></app-table-header>
     <tbody>
         <tr *ngFor="let line of table.lines">
             <td *ngFor="let column of columnRecord.get()">

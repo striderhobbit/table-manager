@@ -13,6 +13,7 @@ export class TableComponent {
     table = this.tableService.table;
 
     columnRecord = this.table.newColumnRecord()
-        .setRange({ visible: true });
+        .setRange({ visible: true })
+        .setCurrentKey("index");
 
 };

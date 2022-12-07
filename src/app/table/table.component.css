@@ -2,17 +2,6 @@ table {
     width: 100%;
 }
 
-thead {
-    background-color: white;
-    position        : sticky;
-    top             : 0;
-    user-select     : none;
-}
-
-th:hover {
-    box-shadow: var(--box-shadow-0);
-}
-
 td {
     max-width    : 0;
     overflow     : hidden;
