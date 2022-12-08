@@ -2,8 +2,8 @@
     <thead>
         <tr>
             <th *ngFor="let column of columnRecord.get()" (click)="column.toggle()" draggable="true"
-                (dragstart)="columnDragStartHandler($event, column)" (dragover)="dropColumn($event, column)"
-                (drop)="dropColumn($event, column)">
+                (dragstart)="columnDragStartHandler($event, column)"
+                (dragenter)="columnDragEnterHandler($event, column)" (drop)="columnDropHandler($event, column)">
                 {{column.key}}
             </th>
         </tr>

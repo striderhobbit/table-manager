@@ -1,6 +1,5 @@
 table {
-    table-layout: fixed;
-    width       : 100%;
+    width: 100%;
 }
 
 thead {
@@ -19,6 +18,7 @@ th:hover {
 
 th,
 td {
+    max-width    : 0;
     overflow     : hidden;
     text-overflow: ellipsis;
     white-space  : nowrap;

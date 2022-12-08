@@ -19,11 +19,7 @@ export class TableComponent {
         .setRange({ visible: true })
         .setCurrentKey("index");
 
-    columnDragStartHandler(dragEvent: DragEvent, column: Column<Fields>): void {
-        dragEvent.dataTransfer?.setData("sourceIndex", column.key as string);
-    };
-
-    dropColumn(dragEvent: DragEvent, column: Column<Fields>): void {
+    private dropColumn(dragEvent: DragEvent, column: Column<Fields>): void {
         if (dragEvent.dataTransfer) {
             dragEvent.preventDefault();
 
@@ -33,5 +29,17 @@ export class TableComponent {
             );
         }
     };
+
+    columnDragStartHandler(dragEvent: DragEvent, column: Column<Fields>): void {
+        dragEvent.dataTransfer?.setData("sourceIndex", column.key as string);
+    };
+
+    columnDragEnterHandler(dragEvent: DragEvent, column: Column<Fields>): void {
+        this.dropColumn(dragEvent, column);
+    }
+
+    columnDropHandler(dragEvent: DragEvent, column: Column<Fields>): void {
+        this.dropColumn(dragEvent, column);
+    }
 
 };
