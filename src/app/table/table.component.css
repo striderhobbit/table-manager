@@ -1,5 +1,6 @@
 table {
     table-layout: fixed;
+    white-space : nowrap;
     width       : fit-content;
 }
 
@@ -22,5 +23,4 @@ th,
 td {
     overflow     : hidden;
     text-overflow: ellipsis;
-    white-space  : nowrap;
 }
