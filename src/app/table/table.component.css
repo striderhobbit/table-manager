@@ -1,6 +1,6 @@
 table {
     table-layout: fixed;
-    width       : 100%;
+    width       : fit-content;
 }
 
 thead {
@@ -15,6 +15,7 @@ th {
 
 th:hover {
     box-shadow: var(--box-shadow-0);
+    width     : min-content;
 }
 
 th,
