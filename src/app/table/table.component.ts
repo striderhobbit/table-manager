@@ -11,7 +11,7 @@ import { TableService } from "../table.service";
 })
 export class TableComponent {
 
-    constructor(public tableService: TableService) { }
+    constructor(public tableService: TableService) { };
 
     table: Table<Fields> = this.tableService.table;
 
@@ -21,14 +21,17 @@ export class TableComponent {
 
     columnDragStartHandler(dragEvent: DragEvent, column: Column<Fields>): void {
         dragEvent.dataTransfer?.setData("sourceIndex", column.key as string);
-    }
+    };
 
     dropColumn(dragEvent: DragEvent, column: Column<Fields>): void {
         if (dragEvent.dataTransfer) {
             dragEvent.preventDefault();
 
-            this.table.moveColumn(dragEvent.dataTransfer.getData("sourceIndex") as keyof Fields, column.key);
+            this.table.moveColumn(
+                dragEvent.dataTransfer.getData("sourceIndex") as keyof Fields,
+                column.key
+            );
         }
-    }
+    };
 
 };

@@ -25,19 +25,20 @@ export class Table<Fields extends object> {
             };
             visible = true;
         });
-    }
+        
+    };
 
     get lines(): Fields[] {
         return this.#lines.slice();
-    }
+    };
 
     newColumnRecord(): Record<Column<Fields>> {
         return new Record<Column<Fields>>(this.#columns);
-    }
+    };
 
     newLineRecord(): Record<Fields> {
         return new Record<Fields>(this.#lines);
-    }
+    };
 
     moveColumn(sourceKey: keyof Fields, targetKey: keyof Fields): void {
         if (sourceKey !== targetKey) {
@@ -47,6 +48,6 @@ export class Table<Fields extends object> {
             this.#keys.splice(sourceIndex, 1)
             this.#keys.splice(targetIndex, 0, sourceKey);
         }
-    }
+    };
 
 };

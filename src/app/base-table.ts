@@ -1,11 +1,8 @@
 import { fields, lines } from "./data/table";
 
 export default class implements BaseTable<Fields> {
-
     fields = new fields;
-
     lines = lines.slice();
-
 };
 
 export interface BaseTable<Fields> {

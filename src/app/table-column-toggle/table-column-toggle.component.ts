@@ -11,7 +11,7 @@ import { TableService } from "../table.service";
 })
 export class TableColumnToggleComponent {
 
-    constructor(public tableService: TableService) { }
+    constructor(public tableService: TableService) { };
 
     table: Table<Fields> = this.tableService.table;
 

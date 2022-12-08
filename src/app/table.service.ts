@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Table } from "./table";
-
 import baseTable, { Fields } from "./base-table";
 
 @Injectable({
