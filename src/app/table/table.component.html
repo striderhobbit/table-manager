@@ -3,7 +3,8 @@
         <tr>
             <th *ngFor="let column of columnRecord.get()" (click)="column.toggle()" draggable="true"
                 (dragstart)="columnDragStartHandler($event, column)"
-                (dragenter)="columnDragEnterHandler($event, column)" (drop)="columnDropHandler($event, column)">
+                (dragenter)="columnDragEnterHandler($event, column)" (dragover)="columnDragOverHandler($event, column)"
+                (drop)="columnDropHandler($event, column)">
                 {{column.key}}
             </th>
         </tr>

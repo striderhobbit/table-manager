@@ -38,6 +38,10 @@ export class TableComponent {
         this.dropColumn(dragEvent, column);
     }
 
+    columnDragOverHandler(dragEvent: DragEvent, column: Column<Fields>): void {
+        dragEvent.preventDefault();
+    }
+
     columnDropHandler(dragEvent: DragEvent, column: Column<Fields>): void {
         this.dropColumn(dragEvent, column);
     }
