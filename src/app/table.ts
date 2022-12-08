@@ -1,54 +1,45 @@
-import { union } from "lodash";
+import { BaseTable, Column } from "./base-table";
 import { Record } from "./record";
 
-export interface Column<Line> {     // TODO "extends object" strangely breaks @ runtime
-    index: number,
-    key: keyof Line,
-    toggle: () => void,
-    visible: boolean,
-};
+export class Table<Fields extends object> {
 
-export class Table<Line extends object> {
+    #lines: Fields[];
 
-    #lines: Line[];
+    #keys: (keyof Fields)[];
 
-    #keys: (keyof Line)[];
+    #columns: Column<Fields>[];
 
-    #columns: Column<Line>[];
+    constructor(baseTable: BaseTable<Fields>) {
 
-    constructor(lines: Line[]) {
+        this.#lines = baseTable.lines.slice();
 
-        this.#lines = lines.slice();
-
-        this.#keys = union(...this.#lines.map(line =>
-            Object.keys(line) as (keyof Line)[]
-        ));
+        this.#keys = Object.keys(baseTable.fields) as (keyof Fields)[];
 
         this.#columns = this.#keys.map((key, _, keys) => new class {
             get index(): number {
                 return keys.indexOf(key);
-            }
+            };
             key = key;
             toggle() {
                 this.visible = !this.visible;
-            }
+            };
             visible = true;
         });
     }
 
-    get lines(): Line[] {
+    get lines(): Fields[] {
         return this.#lines.slice();
     }
 
-    newColumnRecord(): Record<Column<Line>> {
-        return new Record<Column<Line>>(this.#columns);
+    newColumnRecord(): Record<Column<Fields>> {
+        return new Record<Column<Fields>>(this.#columns);
     }
 
-    newLineRecord(): Record<Line> {
-        return new Record<Line>(this.#lines);
+    newLineRecord(): Record<Fields> {
+        return new Record<Fields>(this.#lines);
     }
 
-    moveColumn(sourceKey: keyof Line, targetKey: keyof Line): void {
+    moveColumn(sourceKey: keyof Fields, targetKey: keyof Fields): void {
         if (sourceKey !== targetKey) {
             const sourceIndex: number = this.#keys.indexOf(sourceKey);
             const targetIndex: number = this.#keys.indexOf(targetKey);

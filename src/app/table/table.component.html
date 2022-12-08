@@ -1,5 +1,13 @@
 <table>
-    <app-table-header [table]="table" [columns]="columnRecord.get()"></app-table-header>
+    <thead>
+        <tr>
+            <th *ngFor="let column of columnRecord.get()" (click)="column.toggle()" draggable="true"
+                (dragstart)="columnDragStartHandler($event, column)" (dragover)="dropColumn($event, column)"
+                (drop)="dropColumn($event, column)">
+                {{column.key}}
+            </th>
+        </tr>
+    </thead>
     <tbody>
         <tr *ngFor="let line of table.lines">
             <td *ngFor="let column of columnRecord.get()">

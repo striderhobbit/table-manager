@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Table } from "./table";
 
-import lines from "./data/lines.json";
+import baseTable, { Fields } from "./base-table";
 
 @Injectable({
     providedIn: 'root'
 })
 export class TableService {
 
-    table = new Table<typeof lines[number]>(lines);
+    table = new Table<Fields>(new baseTable);
 
 };

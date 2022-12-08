@@ -1,4 +1,7 @@
+import { Column, Fields } from "../base-table";
 import { Component } from '@angular/core';
+import { Record } from "../record";
+import { Table } from "../table";
 import { TableService } from "../table.service";
 
 @Component({
@@ -6,13 +9,13 @@ import { TableService } from "../table.service";
     templateUrl: './table-column-toggle.component.html',
     styleUrls: ['./table-column-toggle.component.css']
 })
-export class TableColumnToggleComponent {   // TODO make this into a more general toggle-component
+export class TableColumnToggleComponent {
 
     constructor(public tableService: TableService) { }
 
-    table = this.tableService.table;
+    table: Table<Fields> = this.tableService.table;
 
-    columnRecord = this.table.newColumnRecord()
+    columnRecord: Record<Column<Fields>> = this.table.newColumnRecord()
         .setRange({ visible: false });
 
 };

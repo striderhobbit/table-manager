@@ -1,6 +1,0 @@
-<tr *ngIf="columns">
-    <th *ngFor="let column of columns" (click)="column.toggle()" draggable="true"
-        (dragstart)="dragStart($event, column)" (dragover)="drop($event, column)" (drop)="drop($event, column)">
-        {{column.key}}
-    </th>
-</tr>
