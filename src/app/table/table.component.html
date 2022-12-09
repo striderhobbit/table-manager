@@ -1,6 +1,8 @@
 <select #tableWidthSelect (change)="tableWidthSelectChangeHandler(tableWidthSelect)">
     <option>table-width--block</option>
-    <option>table-width--overflow</option>
+    <option>table-width--fit-head</option>
+    <option>table-width--fit-body</option>
+    <option>table-width--fit-all</option>
 </select>
 <table [class]="tableWidth">
     <thead>

@@ -35,16 +35,31 @@ th:not(:focus-within)>.column-head-contextmenu {
     display: none;
 }
 
-table.table-width--block th,
-table.table-width--overflow th.column-width--fit-body,
+th,
 td {
     max-width: 0;
 }
 
-th.column-width--fit-head,
-th.column-width--fit-all,
-td.column-width--fit-body,
-td.column-width--fit-all {
+table.table-width--block th.column-width--fit-head,
+table.table-width--block th.column-width--fit-all,
+table.table-width--block td.column-width--fit-body,
+table.table-width--block td.column-width--fit-all,
+table.table-width--fit-head th.column-width--auto,
+table.table-width--fit-head th.column-width--fit-head,
+table.table-width--fit-head th.column-width--fit-all,
+table.table-width--fit-head td.column-width--fit-body,
+table.table-width--fit-head td.column-width--fit-all,
+table.table-width--fit-body th.column-width--fit-head,
+table.table-width--fit-body th.column-width--fit-all,
+table.table-width--fit-body td.column-width--auto,
+table.table-width--fit-body td.column-width--fit-body,
+table.table-width--fit-body td.column-width--fit-all,
+table.table-width--fit-all th.column-width--auto,
+table.table-width--fit-all th.column-width--fit-head,
+table.table-width--fit-all th.column-width--fit-all,
+table.table-width--fit-all td.column-width--auto,
+table.table-width--fit-all td.column-width--fit-body,
+table.table-width--fit-all td.column-width--fit-all {
     min-width: fit-content;
 }
 

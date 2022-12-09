@@ -15,7 +15,7 @@ export class TableComponent {
 
     table: Table<Fields> = this.tableService.table;
 
-    tableWidth: "table-width--block" | "table-width--overflow" = "table-width--block";
+    tableWidth: "table-width--block" | "table-width--fit-head" | "table-width--fit-body" | "table-width--fit-all" = "table-width--block";
 
     columnRecord: Record<Column<Fields>> = this.table.newColumnRecord()
         .setRange({ visible: true })
