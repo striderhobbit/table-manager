@@ -12,8 +12,7 @@
                 (dragenter)="columnDragEnterHandler($event, column)" (dragover)="columnDragOverHandler($event, column)"
                 (drop)="columnDropHandler($event, column)">
                 <div class="column-key-container">
-                    <input #columnVisibilityCheckbox type="checkbox" checked="column.visible"
-                        (change)="column.toggle(columnVisibilityCheckbox.checked)">
+                    <input type="checkbox" checked="column.visible" (change)="column.toggle()">
                     <span class="overflow-ellipsis">{{column.key}}</span>
                 </div>
                 <div class="column-head-contextmenu">

@@ -13,7 +13,7 @@ export interface BaseTable<Fields> {
 export interface Column<Fields> {
     index: number;
     key: keyof Fields;
-    toggle: (state?: boolean) => void;
+    toggle: () => void;
     visible: boolean;
     width: "column-width--auto" | "column-width--fit-head" | "column-width--fit-body" | "column-width--fit-all";
 };
