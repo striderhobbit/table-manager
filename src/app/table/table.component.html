@@ -11,7 +11,7 @@
                 (drop)="columnDropHandler($event, column)">
                 <div class="overflow-ellipsis">{{column.key}}</div>
                 <div class="column-head-contextmenu">
-                    <div (click)="column.toggle()">Toggle column</div>
+                    <div (click)="column.toggle()">Hide column</div>
                     <select #columnWidthSelect (change)="columnWidthSelectChangeHandler(columnWidthSelect, column)">
                         <option>width--auto</option>
                         <option>width--fit-head</option>

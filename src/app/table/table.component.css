@@ -28,6 +28,7 @@ th>.column-head-contextmenu {
     flex-direction  : column;
     padding         : .4em;
     position        : absolute;
+    text-align      : left;
 }
 
 th:not(:focus-within)>.column-head-contextmenu {
