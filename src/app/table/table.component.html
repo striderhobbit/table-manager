@@ -13,7 +13,7 @@
                 (drop)="columnDropHandler($event, column)" (contextmenu)="$event.preventDefault()">
                 <div class="column-key-container">
                     <input #columnVisibilityCheckbox type="checkbox" checked="column.visible"
-                        (click)="column.toggle(columnVisibilityCheckbox.checked)">
+                        (change)="column.toggle(columnVisibilityCheckbox.checked)">
                     <span class="overflow-ellipsis">{{column.key}}</span>
                 </div>
                 <div class="column-head-contextmenu">
