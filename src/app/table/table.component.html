@@ -10,7 +10,7 @@
             <th *ngFor="let column of columnRecord.get()" draggable="true" tabindex="-1" [ngClass]="column.width"
                 (dragstart)="columnDragStartHandler($event, column)"
                 (dragenter)="columnDragEnterHandler($event, column)" (dragover)="columnDragOverHandler($event, column)"
-                (drop)="columnDropHandler($event, column)" (contextmenu)="$event.preventDefault()">
+                (drop)="columnDropHandler($event, column)">
                 <div class="column-key-container">
                     <input #columnVisibilityCheckbox type="checkbox" checked="column.visible"
                         (change)="column.toggle(columnVisibilityCheckbox.checked)">
