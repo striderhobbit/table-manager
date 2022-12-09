@@ -30,6 +30,10 @@ th>.column-key-container>input[type=checkbox] {
     margin: .2em 0;
 }
 
+th>.column-key-container>input[type=checkbox]:not(:hover) {
+    opacity: .5;
+}
+
 th:not(:hover)>.column-key-container>input[type=checkbox] {
     visibility: hidden;
 }
