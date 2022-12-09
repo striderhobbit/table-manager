@@ -1,17 +1,24 @@
 <table>
     <thead>
         <tr>
-            <th *ngFor="let column of columnRecord.get()" (click)="column.toggle()" draggable="true"
+            <th *ngFor="let column of columnRecord.get()" draggable="true" tabindex="-1" [ngClass]="column.width"
                 (dragstart)="columnDragStartHandler($event, column)"
                 (dragenter)="columnDragEnterHandler($event, column)" (dragover)="columnDragOverHandler($event, column)"
                 (drop)="columnDropHandler($event, column)">
                 {{column.key}}
+                <div class="contextmenu">
+                    <div (click)="column.toggle()">Toggle column</div>
+                    <div (click)="column.width = 'auto'">Width: Auto</div>
+                    <div (click)="column.width = 'fit-head'">Width: Fit head</div>
+                    <div (click)="column.width = 'fit-body'">Width: Fit body</div>
+                    <div (click)="column.width = 'fit-all'">Width: Fit all</div>
+                </div>
             </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let line of table.lines">
-            <td *ngFor="let column of columnRecord.get()">
+            <td *ngFor="let column of columnRecord.get()" [ngClass]="column.width">
                 {{line[column.key]}}
             </td>
         </tr>

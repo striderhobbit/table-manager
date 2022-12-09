@@ -1,7 +1,6 @@
 table {
-    table-layout: fixed;
-    white-space : nowrap;
-    width       : fit-content;
+    white-space: nowrap;
+    width      : 100%;
 }
 
 thead {
@@ -12,15 +11,36 @@ thead {
 
 th {
     background-color: white;
+    position        : relative;
 }
 
 th:hover {
     box-shadow: var(--box-shadow-0);
-    width     : min-content;
+}
+
+th .contextmenu {
+    background-color: white;
+    position        : absolute;
+}
+
+th:not(:focus-within) .contextmenu {
+    display: none;
 }
 
 th,
 td {
-    overflow     : hidden;
+    overflow-x   : hidden;
     text-overflow: ellipsis;
+    max-width    : 0;
+}
+
+th.fit-head,
+th.fit-all,
+td.fit-body,
+td.fit-all {
+    min-width: fit-content;
+}
+
+td:not(.auto) {
+    width: 0;
 }
