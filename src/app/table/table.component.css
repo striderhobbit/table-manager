@@ -51,6 +51,6 @@ table.table-width--fit-all td.column-width--auto {
     min-width: fit-content;
 }
 
-td:not(.column-width--auto) {
+table.table-width--block td:not(.column-width--auto) {
     width: 0;
 }
