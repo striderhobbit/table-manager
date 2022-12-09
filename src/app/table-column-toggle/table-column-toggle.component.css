@@ -1,7 +1,7 @@
 ul {
     background-color: white;
     bottom          : 0;
-    box-shadow      : 0 0 .2em .2em rgb(0 0 0 / 10%);
+    box-shadow      : var(--box-shadow-1);
     margin          : .4em;
     position        : fixed;
     right           : 0;

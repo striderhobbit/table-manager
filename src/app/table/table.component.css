@@ -20,6 +20,10 @@ th:hover {
 
 th .contextmenu {
     background-color: white;
+    box-shadow      : var(--box-shadow-1);
+    display         : flex;
+    flex-direction  : column;
+    padding         : .4em;
     position        : absolute;
 }
 
