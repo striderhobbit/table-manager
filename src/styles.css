@@ -1,6 +1,6 @@
 :root {
-    --box-shadow-0: 0 0 0 .1vmin rgb(0 0 0 / 20%) inset;
-    --box-shadow-1: 0 0 .4em .2em rgb(0 0 0 / 20%);
+    --box-shadow-inset-border: 0 0 0 .1vmin rgb(0 0 0 / 20%) inset;
+    --box-shadow-0           : 0 0 .4em .2em rgb(0 0 0 / 20%);
 }
 
 *,
@@ -10,6 +10,11 @@
     box-sizing   : border-box;
     margin       : 0;
     padding      : 0;
+}
+
+.overflow-ellipsis {
+    overflow     : hidden;
+    text-overflow: ellipsis;
 }
 
 html,

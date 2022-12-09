@@ -15,27 +15,25 @@ th {
 }
 
 th:hover {
-    box-shadow: var(--box-shadow-0);
+    box-shadow: var(--box-shadow-inset-border);
 }
 
-th .contextmenu {
+th>.column-head-contextmenu {
     background-color: white;
-    box-shadow      : var(--box-shadow-1);
+    box-shadow      : var(--box-shadow-0);
     display         : flex;
     flex-direction  : column;
     padding         : .4em;
     position        : absolute;
 }
 
-th:not(:focus-within) .contextmenu {
+th:not(:focus-within)>.column-head-contextmenu {
     display: none;
 }
 
 th,
 td {
-    overflow-x   : hidden;
-    text-overflow: ellipsis;
-    max-width    : 0;
+    max-width: 0;
 }
 
 th.width-fit-head,

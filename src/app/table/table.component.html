@@ -5,8 +5,8 @@
                 (dragstart)="columnDragStartHandler($event, column)"
                 (dragenter)="columnDragEnterHandler($event, column)" (dragover)="columnDragOverHandler($event, column)"
                 (drop)="columnDropHandler($event, column)">
-                {{column.key}}
-                <div class="contextmenu">
+                <div class="overflow-ellipsis">{{column.key}}</div>
+                <div class="column-head-contextmenu">
                     <div (click)="column.toggle()">Toggle column</div>
                     <select #columnWidthSelect (change)="columnWidthSelectChangeHandler(columnWidthSelect, column)">
                         <option>width-auto</option>
@@ -20,7 +20,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let line of table.lines">
-            <td *ngFor="let column of columnRecord.get()" [ngClass]="column.width">
+            <td *ngFor="let column of columnRecord.get()" class="overflow-ellipsis" [ngClass]="column.width">
                 {{line[column.key]}}
             </td>
         </tr>

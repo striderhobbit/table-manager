@@ -1,7 +1,7 @@
 ul {
     background-color: white;
     bottom          : 0;
-    box-shadow      : var(--box-shadow-1);
+    box-shadow      : var(--box-shadow-0);
     margin          : .4em;
     position        : fixed;
     right           : 0;
@@ -19,5 +19,5 @@ li {
 }
 
 li:hover {
-    box-shadow: var(--box-shadow-0);
+    box-shadow: var(--box-shadow-inset-border);
 }
