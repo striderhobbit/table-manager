@@ -13,7 +13,7 @@
                 (drop)="columnDropHandler($event, column)">
                 <div class="column-key-container">
                     <input type="checkbox" checked="column.visible" (change)="column.toggle()">
-                    <span class="overflow-ellipsis">{{column.key}}</span>
+                    <div class="overflow-ellipsis">{{column.key}}</div>
                 </div>
                 <div class="column-head-contextmenu">
                     <select #columnWidthSelect (change)="columnWidthSelectChangeHandler(columnWidthSelect, column)">
