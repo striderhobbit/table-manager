@@ -34,13 +34,13 @@ td {
     max-width    : 0;
 }
 
-th.fit-head,
-th.fit-all,
-td.fit-body,
-td.fit-all {
+th.width-fit-head,
+th.width-fit-all,
+td.width-fit-body,
+td.width-fit-all {
     min-width: fit-content;
 }
 
-td:not(.auto) {
+td:not(.width-auto) {
     width: 0;
 }

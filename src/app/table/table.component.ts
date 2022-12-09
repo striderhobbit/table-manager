@@ -46,4 +46,8 @@ export class TableComponent {
         this.dropColumn(dragEvent, column);
     }
 
+    columnWidthSelectChangeHandler(columnWidthSelect: HTMLSelectElement, column: Column<Fields>) {
+        column.width = columnWidthSelect.value as typeof column.width;
+    }
+
 };
