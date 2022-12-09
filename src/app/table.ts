@@ -24,7 +24,7 @@ export class Table<Fields extends object> {
                 this.visible = !this.visible;
             };
             visible = true;
-            width = "width--auto" as const;
+            width = "column-width--auto" as const;
         });
 
     };

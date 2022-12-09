@@ -36,17 +36,18 @@ th:not(:focus-within)>.column-head-contextmenu {
 }
 
 table.table-width--block th,
+table.table-width--overflow th.column-width--fit-body,
 td {
     max-width: 0;
 }
 
-th.width--fit-head,
-th.width--fit-all,
-td.width--fit-body,
-td.width--fit-all {
+th.column-width--fit-head,
+th.column-width--fit-all,
+td.column-width--fit-body,
+td.column-width--fit-all {
     min-width: fit-content;
 }
 
-td:not(.width--auto) {
+td:not(.column-width--auto) {
     width: 0;
 }
