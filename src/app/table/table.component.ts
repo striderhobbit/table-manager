@@ -15,6 +15,8 @@ export class TableComponent {
 
     table: Table<Fields> = this.tableService.table;
 
+    tableWidth: "table-width--block" | "table-width--overflow" = "table-width--block";
+
     columnRecord: Record<Column<Fields>> = this.table.newColumnRecord()
         .setRange({ visible: true })
         .setCurrentKey("index");
@@ -48,6 +50,10 @@ export class TableComponent {
 
     columnWidthSelectChangeHandler(columnWidthSelect: HTMLSelectElement, column: Column<Fields>) {
         column.width = columnWidthSelect.value as typeof column.width;
+    }
+
+    tableWidthSelectChangeHandler(tableWidthSelect: HTMLSelectElement) {
+        this.tableWidth = tableWidthSelect.value as typeof this.tableWidth;
     }
 
 };

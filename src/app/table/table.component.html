@@ -1,4 +1,8 @@
-<table>
+<select #tableWidthSelect (change)="tableWidthSelectChangeHandler(tableWidthSelect)">
+    <option>table-width--block</option>
+    <option>table-width--overflow</option>
+</select>
+<table [class]="tableWidth">
     <thead>
         <tr>
             <th *ngFor="let column of columnRecord.get()" draggable="true" tabindex="-1" [ngClass]="column.width"

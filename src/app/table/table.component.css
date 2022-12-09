@@ -1,6 +1,9 @@
 table {
     white-space: nowrap;
-    width      : 100%;
+}
+
+table.table-width--block {
+    width: 100%;
 }
 
 thead {
@@ -31,7 +34,7 @@ th:not(:focus-within)>.column-head-contextmenu {
     display: none;
 }
 
-th,
+table.table-width--block th,
 td {
     max-width: 0;
 }
