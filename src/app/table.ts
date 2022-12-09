@@ -20,8 +20,8 @@ export class Table<Fields extends object> {
                 return keys.indexOf(key);
             };
             key = key;
-            toggle() {
-                this.visible = !this.visible;
+            toggle(newState?: boolean): void {
+                this.visible = newState ?? !this.visible;
             };
             visible = true;
             width = "column-width--auto" as const;
