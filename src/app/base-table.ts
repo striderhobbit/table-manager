@@ -15,7 +15,7 @@ export interface Column<Fields> {
     key: keyof Fields;
     toggle: () => void;
     visible: boolean;
-    width: "column-width--auto" | "column-width--fit-head" | "column-width--fit-body" | "column-width--fit-all" | "column-width--fixed";
+    width: "column-width--auto" | "column-width--fit-head" | "column-width--fit-body" | "column-width--fit-all";
 };
 
 export interface Fields extends fields { };
