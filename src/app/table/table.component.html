@@ -11,11 +11,9 @@
                 (dragstart)="columnDragStartHandler($event, column)"
                 (dragenter)="columnDragEnterHandler($event, column)" (dragover)="columnDragOverHandler($event, column)"
                 (drop)="columnDropHandler($event, column)">
-                <div class="column-key-container">
-                    <input type="checkbox" checked="column.visible" (change)="column.toggle()">
-                    <div class="overflow-ellipsis">{{column.key}}</div>
-                </div>
+                <div class="overflow-ellipsis">{{column.key}}</div>
                 <div class="column-head-contextmenu">
+                    <input type="checkbox" checked="column.visible" (change)="column.toggle()">
                     <select #columnWidthSelect (change)="columnWidthSelectChangeHandler(columnWidthSelect, column)">
                         <option>column-width--auto</option>
                         <option>column-width--fit-head</option>

@@ -21,23 +21,6 @@ th:hover {
     box-shadow: var(--box-shadow-inset-border);
 }
 
-th>.column-key-container {
-    display       : flex;
-    flex-direction: column;
-}
-
-th>.column-key-container>input[type=checkbox] {
-    margin: .2em 0;
-}
-
-th>.column-key-container>input[type=checkbox]:not(:hover) {
-    opacity: .4;
-}
-
-th:not(:hover)>.column-key-container>input[type=checkbox] {
-    visibility: hidden;
-}
-
 th>.column-head-contextmenu {
     background-color: white;
     box-shadow      : var(--box-shadow-0);
@@ -50,6 +33,14 @@ th>.column-head-contextmenu {
 
 th:not(:focus-within)>.column-head-contextmenu {
     display: none;
+}
+
+th>.column-head-contextmenu>input[type=checkbox] {
+    margin: .2em 0;
+}
+
+th>.column-head-contextmenu>input[type=checkbox]:not(:hover) {
+    opacity: .4;
 }
 
 th,
