@@ -59,9 +59,11 @@ export abstract class QueryComponent<Result, Setup extends QuerySetup<Result>> {
 
         this.setup = setup;
 
-        Object.defineProperty(this.setup.trigger, "active", {
-            configurable: true,
-            get: () => this.setup === setup && this.open,
+        Object.defineProperties(this.setup.trigger, {
+            active: {
+                configurable: true,
+                get: () => this.setup === setup && this.open,
+            },
         });
 
         this.open = true;
