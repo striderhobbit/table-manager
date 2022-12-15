@@ -57,9 +57,7 @@ export abstract class QueryComponent<Result, Setup extends QuerySetup<Result>> {
             throw new Error(`${QueryComponent.name} is already open`);
         }
 
-        this.setup = setup;
-
-        Object.defineProperties(this.setup.trigger, {
+        Object.defineProperties((this.setup = setup).trigger, {
             active: {
                 configurable: true,
                 get: () => this.setup === setup && this.open,
