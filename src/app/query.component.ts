@@ -16,6 +16,7 @@ export interface QuerySetup<Result> {
         on: QueryEvent[];
     };
     trigger: {
+        active?: () => boolean;
         enabled: boolean;
         label: string;
     };
@@ -57,6 +58,11 @@ export abstract class QueryComponent<Result, Setup extends QuerySetup<Result>> {
         }
 
         this.setup = setup;
+
+        Object.defineProperty(this.setup.trigger, "active", {
+            configurable: true,
+            get: () => this.setup === setup && this.open,
+        });
 
         this.open = true;
 

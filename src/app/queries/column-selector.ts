@@ -26,6 +26,7 @@ export class ColumnSelectorQuery {
     })).setCurrentKey("id");
 
     setup: OptionQuerySetup = (({ options, range }) => ({
+        multiple: true,
         options: options.setRange(range === ColumnSelectorQueryRange.Hidden
             ? { checked: false }
             : {}
@@ -33,7 +34,6 @@ export class ColumnSelectorQuery {
         resolve: {
             on: [QueryEvent.Blur],
         },
-        multiple: true,
         trigger: new class {
             get enabled() {
                 return options.size > 0;
