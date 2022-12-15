@@ -1,0 +1,19 @@
+footer {
+    background-color: #0c0c0d;
+    bottom          : 0;
+    color           : #b1b1b3;
+    display         : flex;
+    position        : fixed;
+    width           : 100%;
+}
+
+button {
+    background: inherit;
+    color     : inherit;
+    cursor    : pointer;
+    padding   : .3em;
+}
+
+button:not(:hover) {
+    opacity: .5;
+}

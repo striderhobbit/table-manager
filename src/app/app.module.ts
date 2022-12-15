@@ -1,20 +1,21 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { OptionQueryComponent } from './option-query/option-query.component';
+import { StatusbarComponent } from './statusbar/statusbar.component';
 import { TableComponent } from './table/table.component';
-import { TableColumnToggleComponent } from './table-column-toggle/table-column-toggle.component';
 
 @NgModule({
     declarations: [
         AppComponent,
+        OptionQueryComponent,
+        StatusbarComponent,
         TableComponent,
-        TableColumnToggleComponent
     ],
     imports: [
+        AppRoutingModule,
         BrowserModule,
-        AppRoutingModule
     ],
     providers: [],
     bootstrap: [AppComponent]

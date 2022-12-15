@@ -2,28 +2,22 @@ import { filter, ListIterateeCustom, sortBy } from "lodash";
 
 export class Record<Fields> {
 
-    #lines: Fields[];
+    constructor(private lines: Fields[]) { };
 
-    #filter?: ListIterateeCustom<Fields, boolean>;
+    private filter?: ListIterateeCustom<Fields, boolean>;   // TODO
 
-    #keys: (keyof Fields)[] = [];
-
-    constructor(lines: Fields[]) {
-        this.#lines = lines;
-    };
+    private keys: (keyof Fields)[] = [];
 
     setRange(filter: ListIterateeCustom<Fields, boolean>): Record<Fields> {
-        return this.#filter = filter,
-            this;
+        return Object.assign(this, { filter });
     };
 
     setCurrentKey(...keys: (keyof Fields)[]): Record<Fields> {
-        return this.#keys = keys,
-            this;
+        return Object.assign(this, { keys });
     };
 
     get(): Fields[] {
-        return sortBy<Fields>(filter<Fields>(this.#lines, this.#filter), this.#keys);
+        return sortBy<Fields>(filter<Fields>(this.lines, this.filter), this.keys);
     };
 
     get size(): number {

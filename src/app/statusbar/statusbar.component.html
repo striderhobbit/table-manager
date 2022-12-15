@@ -1,0 +1,5 @@
+<footer>
+    <div *ngFor="let querySetup of querySetupRecord.get()">
+        <button type="button" (click)="queryService.prompt(querySetup)">{{querySetup.trigger.key}}</button>
+    </div>
+</footer>

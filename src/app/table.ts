@@ -1,13 +1,7 @@
-import { BaseTable, Column } from "./base-table";
+import { BaseTable, Column, ColumnWidth, TableWidth } from "./base-table";
 import { Record } from "./record";
 
 export class Table<Fields extends object> {
-
-    #lines: Fields[];
-
-    #keys: (keyof Fields)[];
-
-    #columns: Column<Fields>[];
 
     constructor(baseTable: BaseTable<Fields>) {
 
@@ -24,9 +18,21 @@ export class Table<Fields extends object> {
                 this.visible = !this.visible;
             };
             visible = true;
-            width = "column-width--auto" as const;
+            width = ColumnWidth.Auto;
         });
 
+    };
+
+    width: TableWidth = TableWidth.Block;   // TODO get/set / responsiveness
+
+    #lines: Fields[];
+
+    #keys: (keyof Fields)[];
+
+    #columns: Column<Fields>[];
+
+    get columns(): Column<Fields>[] {
+        return this.#columns.slice();
     };
 
     get lines(): Fields[] {

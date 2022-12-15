@@ -15,7 +15,21 @@ export interface Column<Fields> {
     key: keyof Fields;
     toggle: () => void;
     visible: boolean;
-    width: "column-width--auto" | "column-width--fit-head" | "column-width--fit-body" | "column-width--fit-all";
+    width: ColumnWidth;
+};
+
+export enum ColumnWidth {
+    Auto = "column-width--auto",
+    FitAll = "column-width--fit-all",
+    FitBody = "column-width--fit-body",
+    FitHead = "column-width--fit-head",
+};
+
+export enum TableWidth {
+    Block = "table-width--block",
+    FitAll = "table-width--fit-all",
+    FitBody = "table-width--fit-body",
+    FitHead = "table-width--fit-head",
 };
 
 export interface Fields extends fields { };

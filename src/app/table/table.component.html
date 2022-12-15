@@ -1,20 +1,13 @@
-<select #tableWidthSelect (change)="tableWidthSelectChangeHandler(tableWidthSelect)">
-    <option>table-width--block</option>
-    <option>table-width--fit-head</option>
-    <option>table-width--fit-body</option>
-    <option>table-width--fit-all</option>
-</select>
-<table [class]="tableWidth">
+<table [class]="table.width">
     <thead>
         <tr>
             <th *ngFor="let column of columnRecord.get()" draggable="true" tabindex="-1" [ngClass]="column.width"
-                (dragstart)="columnDragStartHandler($event, column)"
-                (dragenter)="columnDragEnterHandler($event, column)" (dragover)="columnDragOverHandler($event, column)"
-                (drop)="columnDropHandler($event, column)">
+                (dragstart)="handleColumnDragStart($event, column)" (dragenter)="handleColumnDragEnter($event, column)"
+                (dragover)="handleColumnDragOver($event, column)" (drop)="handleColumnDrop($event, column)">
                 <div class="overflow-ellipsis">{{column.key}}</div>
                 <div class="column-head-contextmenu">
                     <input type="checkbox" checked="column.visible" (change)="column.toggle()">
-                    <select #columnWidthSelect (change)="columnWidthSelectChangeHandler(columnWidthSelect, column)">
+                    <select #columnWidthSelect (change)="handleColumnWidthSelectChange(columnWidthSelect, column)">
                         <option>column-width--auto</option>
                         <option>column-width--fit-head</option>
                         <option>column-width--fit-body</option>

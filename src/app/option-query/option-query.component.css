@@ -1,0 +1,22 @@
+:host {
+    background-color: white;
+    box-shadow      : var(--box-shadow-0);
+    left            : 50%;
+    position        : fixed;
+    top             : 0;
+    transform       : translateX(-50%);
+    z-index         : 1;
+}
+
+:host:focus {
+    background-color: red;
+}
+
+table,
+tr {
+    padding: .4em;
+}
+
+tr {
+    user-select: none;
+}
