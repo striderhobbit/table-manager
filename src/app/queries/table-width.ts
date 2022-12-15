@@ -1,8 +1,9 @@
 import { Fields, TableWidth } from "src/app/base-table";
 import { OptionQueryOption, OptionQuerySetup } from "src/app/option-query/option-query.component";
-import { Record } from "src/app/record";
-import { Table } from "src/app/table";
 import { QueryEvent, QueryType } from "../query.component";
+import { Record } from "src/app/record";
+import { startCase } from "lodash";
+import { Table } from "src/app/table";
 
 export class TableWidthQuery {
 
@@ -21,7 +22,7 @@ export class TableWidthQuery {
                 }
             };
             id = TableWidth[label];
-            label = label;
+            label = startCase(label);
         })),
         resolve: {
             callback: result => {

@@ -1,6 +1,7 @@
 :host {
-    background-color: white;
+    background-color: #0c0c0d;
     box-shadow      : var(--box-shadow-0);
+    color           : #b1b1b3;
     left            : 50%;
     position        : fixed;
     top             : 0;
@@ -8,15 +9,24 @@
     z-index         : 1;
 }
 
-:host:focus {
-    background-color: red;
-}
-
 table,
-tr {
+td {
     padding: .4em;
 }
 
 tr {
+    cursor     : pointer;
     user-select: none;
+}
+
+tr.checked {
+    font-weight: bold;
+}
+
+tr:not(:hover) {
+    opacity: .7;
+}
+
+input[type=checkbox]:disabled {
+    pointer-events: none;
 }

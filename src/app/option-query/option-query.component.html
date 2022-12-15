@@ -1,8 +1,9 @@
 <div *ngIf="setup && open">
     <table *ngIf="setup.options.size">
-        <tr *ngFor="let option of setup.options.get()">
+        <tr *ngFor="let option of setup.options.get()" [class.checked]="option.checked"
+            (click)="handleOptionClick(option)">
             <td><input disabled type="checkbox" [checked]="option.checked"></td>
-            <td (click)="handleOptionClick(option)">{{option.label}}</td>
+            <td>{{option.label}}</td>
         </tr>
     </table>
 </div>
