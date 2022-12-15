@@ -11,8 +11,8 @@ button {
     background: inherit;
     color     : inherit;
     cursor    : pointer;
-    margin    : 0 .6em;
-    padding   : .2em;
+    margin    : 0 .4em;
+    padding   : .2em .4em;
 }
 
 button.active,
