@@ -1,13 +1,13 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 import { QueryService } from "./query.service";
 
-export enum QueryType {
-    Option,
-};
-
 export enum QueryEvent {
     Blur,
     Click,
+};
+
+export enum QueryType {
+    Option,
 };
 
 export interface QuerySetup<Result> {

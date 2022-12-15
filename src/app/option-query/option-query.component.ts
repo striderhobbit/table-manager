@@ -8,7 +8,7 @@ export interface OptionQueryOption {
     label: string;
 };
 
-type Result = OptionQueryOption[];
+type Result = OptionQueryOption[] | undefined;
 
 export interface OptionQuerySetup extends QuerySetup<Result> {
     multiple?: boolean;
@@ -28,7 +28,7 @@ export class OptionQueryComponent extends QueryComponent<Result, OptionQuerySetu
     };
 
     get result(): Result {
-        return this.setup?.options.get() ?? [];
+        return this.setup?.options.get();
     };
 
     handleOptionClick(optionQueryOption: OptionQueryOption): void {

@@ -25,30 +25,26 @@ export class ColumnSelectorQuery {
         };
     })).setCurrentKey("id");
 
-    setup: OptionQuerySetup = (() => {
-        const { options, range } = this;
-
-        return {
-            options: options.setRange(range === ColumnSelectorQueryRange.Hidden
-                ? { checked: false }
-                : {}
-            ),
-            resolve: {
-                on: [QueryEvent.Blur],
-            },
-            multiple: true,
-            trigger: new class {
-                get enabled() {
-                    return options.size > 0;
-                };
-                get label() {
-                    return range === ColumnSelectorQueryRange.Hidden
-                        ? `${options.size} hidden columns`
-                        : "Select columns";
-                };
-            },
-            type: QueryType.Option,
-        };
-    })();
+    setup: OptionQuerySetup = (({ options, range }) => ({
+        options: options.setRange(range === ColumnSelectorQueryRange.Hidden
+            ? { checked: false }
+            : {}
+        ),
+        resolve: {
+            on: [QueryEvent.Blur],
+        },
+        multiple: true,
+        trigger: new class {
+            get enabled() {
+                return options.size > 0;
+            };
+            get label() {
+                return range === ColumnSelectorQueryRange.Hidden
+                    ? `${options.size} hidden columns`
+                    : "Select columns";
+            };
+        },
+        type: QueryType.Option,
+    }))(this);
 
 };
