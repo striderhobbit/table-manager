@@ -1,6 +1,6 @@
 <footer>
     <div *ngFor="let querySetup of querySetupRecord.get()">
-        <button [class.active]="querySetup.trigger.active" type="button"
+        <button type="button" [class.active]="querySetup.trigger.active"
             (click)="queryService.prompt(querySetup)">{{querySetup.trigger.label}}</button>
     </div>
 </footer>
