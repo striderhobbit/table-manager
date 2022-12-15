@@ -1,7 +1,8 @@
 import { Fields, TableWidth } from "src/app/base-table";
-import { OptionQueryOption, OptionQuerySetup, OptionQuerySubtype } from "src/app/option-query/option-query.component";
+import { OptionQueryOption, OptionQuerySetup } from "src/app/option-query/option-query.component";
 import { Record } from "src/app/record";
 import { Table } from "src/app/table";
+import { QueryEvent, QueryType } from "../query.component";
 
 export class TableWidthQuery {
 
@@ -22,7 +23,7 @@ export class TableWidthQuery {
                         table.width = TableWidth[label];
                     }
                 };
-                key = TableWidth[label];
+                id = TableWidth[label];
                 label = label;
             })),
             resolve: {
@@ -30,17 +31,16 @@ export class TableWidthQuery {
                     const optionChecked = result.find(option => option.checked);
 
                     if (optionChecked) {
-                        table.width = optionChecked.key as TableWidth;
+                        table.width = optionChecked.id as TableWidth;
                     }
                 },
-                on: ["blur"/* , "click" */],
+                on: [QueryEvent.Blur, QueryEvent.Click],
             },
-            subtype: OptionQuerySubtype.Single,
             trigger: {
                 enabled: true,
                 key: "Table width",
             },
-            type: "option",
+            type: QueryType.Option,
         };
     })();
 

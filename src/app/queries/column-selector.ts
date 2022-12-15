@@ -1,7 +1,8 @@
 import { Fields } from "src/app/base-table";
-import { OptionQueryOption, OptionQuerySetup, OptionQuerySubtype } from "src/app/option-query/option-query.component";
+import { OptionQueryOption, OptionQuerySetup } from "src/app/option-query/option-query.component";
 import { Record } from "src/app/record";
 import { Table } from "src/app/table";
+import { QueryEvent, QueryType } from "../query.component";
 
 export enum ColumnSelectorQueryRange { All, Hidden };
 
@@ -16,13 +17,13 @@ export class ColumnSelectorQuery {
         set checked(value) {
             column.visible = value;
         };
-        get key() {
+        get id() {
             return column.key;
         };
         get label() {
             return column.key;
         };
-    })).setCurrentKey("key");
+    })).setCurrentKey("id");
 
     setup: OptionQuerySetup = (() => {
         const { options, range } = this;
@@ -33,9 +34,9 @@ export class ColumnSelectorQuery {
                 : {}
             ),
             resolve: {
-                on: ["blur"],
+                on: [QueryEvent.Blur],
             },
-            subtype: OptionQuerySubtype.Multi,
+            multiple: true,
             trigger: new class {
                 get enabled() {
                     return options.size > 0;
@@ -46,7 +47,7 @@ export class ColumnSelectorQuery {
                         : "Select columns";
                 };
             },
-            type: "option",
+            type: QueryType.Option,
         };
     })();
 

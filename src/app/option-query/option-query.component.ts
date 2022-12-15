@@ -1,24 +1,19 @@
 import { Component } from '@angular/core';
-import { QueryComponent, QuerySetup } from "../query.component";
+import { QueryComponent, QueryEvent, QuerySetup, QueryType } from "../query.component";
 import { Record } from "../record";
 
 export interface OptionQueryOption {
     checked: boolean;
-    key: string;
+    id: string;
     label: string;
 };
 
-type OptionQueryResult = OptionQueryOption[];
+type Result = OptionQueryOption[];
 
-export enum OptionQuerySubtype {
-    Multi,
-    Single,
-};
-
-export interface OptionQuerySetup extends QuerySetup<OptionQueryResult> {
+export interface OptionQuerySetup extends QuerySetup<Result> {
+    multiple?: boolean;
     options: Record<OptionQueryOption>;
-    subtype: OptionQuerySubtype;
-    type: "option";
+    type: QueryType.Option;
 };
 
 @Component({
@@ -26,27 +21,27 @@ export interface OptionQuerySetup extends QuerySetup<OptionQueryResult> {
     templateUrl: './option-query.component.html',
     styleUrls: ['./option-query.component.css']
 })
-export class OptionQueryComponent extends QueryComponent<OptionQueryResult, OptionQuerySetup> {
+export class OptionQueryComponent extends QueryComponent<Result, OptionQuerySetup> {
 
     connect(): void {
         this.queryService.optionQueryComponent = this;
     };
 
-    get result(): OptionQueryResult {
+    get result(): Result {
         return this.setup?.options.get() ?? [];
     };
 
     handleOptionClick(optionQueryOption: OptionQueryOption): void {
         this.toggleOption(optionQueryOption);
 
-        if (this.setup?.resolve.on.includes("click")) {
+        if (this.setup?.resolve.on.includes(QueryEvent.Click)) {
             this.resolve();
         }
     };
 
     toggleOption(optionQueryOption: OptionQueryOption): void {
         this.setup?.options.get().forEach(option => {
-            if (this.setup?.subtype === OptionQuerySubtype.Single || option === optionQueryOption) {
+            if (!this.setup?.multiple || option === optionQueryOption) {
                 option.checked = option === optionQueryOption && !option.checked;
             }
         });

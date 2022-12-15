@@ -1,16 +1,25 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 import { QueryService } from "./query.service";
 
-export interface QuerySetup<QueryResult> {
+export enum QueryType {
+    Option,
+};
+
+export enum QueryEvent {
+    Blur,
+    Click,
+};
+
+export interface QuerySetup<Result> {
     resolve: {
-        callback?: (result: QueryResult) => void;
-        on: ("blur" | "click")[];
+        callback?: (result: Result) => void;
+        on: QueryEvent[];
     };
     trigger: {
         enabled: boolean;
         key: string;
     };
-    type: "option";
+    type: QueryType;
 };
 
 @Directive()
@@ -31,7 +40,7 @@ export abstract class QueryComponent<Result, Setup extends QuerySetup<Result>> {
     protected setup?: Setup;
 
     @HostListener("blur") handleBlur() {
-        if (this.setup?.resolve.on.includes("blur")) {
+        if (this.setup?.resolve.on.includes(QueryEvent.Blur)) {
             this.resolve();
         }
     };
