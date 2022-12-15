@@ -17,7 +17,7 @@ export interface QuerySetup<Result> {
     };
     trigger: {
         enabled: boolean;
-        key: string;
+        label: string;
     };
     type: QueryType;
 };

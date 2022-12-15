@@ -41,7 +41,7 @@ export class ColumnSelectorQuery {
                 get enabled() {
                     return options.size > 0;
                 };
-                get key() {
+                get label() {
                     return range === ColumnSelectorQueryRange.Hidden
                         ? `${options.size} hidden columns`
                         : "Select columns";

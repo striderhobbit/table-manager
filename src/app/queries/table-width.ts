@@ -38,7 +38,7 @@ export class TableWidthQuery {
             },
             trigger: {
                 enabled: true,
-                key: "Table width",
+                label: "Table width",
             },
             type: QueryType.Option,
         };
