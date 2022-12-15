@@ -7,12 +7,16 @@ import { QuerySetup, QueryType } from "./query.component";
 })
 export class QueryService {
 
-    optionQueryComponent?: OptionQueryComponent;
+    #optionQueryComponent?: OptionQueryComponent;
+
+    set optionQueryComponent(value: OptionQueryComponent) {
+        this.#optionQueryComponent = value;
+    }
 
     prompt<Result>(querySetup: QuerySetup<Result>): void {
         switch (querySetup.type) {
             case QueryType.Option: {
-                this.optionQueryComponent?.prompt(querySetup as OptionQuerySetup);
+                this.#optionQueryComponent?.prompt(querySetup as OptionQuerySetup);
                 break;
             }
         }
